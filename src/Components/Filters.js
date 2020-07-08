@@ -9,7 +9,7 @@ class Filters extends Component {
     }
 
     render() {
-        const filters = this.props.filters
+        const { filters, options } = this.props
         return (
                 <nav className="navbar is-info" style= {{justifyContent:'center'} }>
                     <div className="navbar-item">
@@ -46,11 +46,8 @@ class Filters extends Component {
                         />
                     </div>
                     <div className="navbar-item">
-                            <OptionsFilter options={[{ value: undefined, name: 'Cualquier tamaño'},
-                                                    { value: 10, name: 'Hotel pequeño'},
-                                                    { value: 20, name: 'Hotel mediano'},
-                                                    { value: 30, name: 'Hotel grande'}]}
-                                            selected={filters.rooms}
+                            <OptionsFilter options={ options }
+                                            selected={ filters.rooms }
                                             icon="bed" 
                         />
                     </div>
