@@ -5,8 +5,16 @@ import OptionsFilter from './OptionsFilter'
 
 class Filters extends Component {
     constructor(props){
-        super()
+        super(props)
+        this.handleOptionChange = this.handleOptionChange.bind(this)
     }
+
+    handleOptionChange(event) {
+         let payload = this.props.filters
+         payload[event.target.name] = event.target.value
+         this.props.onFilterChange(payload)
+      }
+      
 
     render() {
         const { filters, options } = this.props
@@ -15,12 +23,14 @@ class Filters extends Component {
                     <div className="navbar-item">
                         <DateFilter
                             date={filters.dateFrom}
-                            icon="sign-in-alt"/>
+                            icon="fas fa-sign-in-alt"
+                            onDateChange= {this.handleOptionChange}
+                            />
                     </div>
                     <div className="navbar-item">
                         <DateFilter
                             date={filters.dateTo}
-                            icon="sign-out-alt"
+                            icon="fas fa-sign-out-alt"
                         />
                     </div>
                     <div className="navbar-item">
@@ -31,7 +41,7 @@ class Filters extends Component {
                                                 { value: 'Uruguay', name: 'Uruguay'}
                                                 ]}
                                         selected={filters.country}
-                                        icon="globe"
+                                        icon="fa fa-globe"
                         />
                     </div>
                     <div className="navbar-item">
@@ -42,13 +52,13 @@ class Filters extends Component {
                                                     {value:4, name: '$$$$'},
                                                 ]}
                                         selected={filters.price}
-                                        icon="dolar-sign" 
+                                        icon="fa-dollar-sign" 
                         />
                     </div>
                     <div className="navbar-item">
                             <OptionsFilter options={ options }
                                             selected={ filters.rooms }
-                                            icon="bed" 
+                                            icon="fa-bed" 
                         />
                     </div>
 

@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
 
 class OptionsFilter extends Component {
-    constructor(props){
+    constructor(){
         super()
+        this.handleOptionChange = this.handleOptionChange.bind(this)
     }
 
-    execute = () => {
-        alert("asd")
+    handleOptionChange = (e) =>{
+        this.props.onOptionChange(e)
     }
 
     render() {
-        const options = this.props.options
+        const {options, icon} = this.props
         return (
             <div>
                 <div className="field">
                     <div className="control has-icons-left">
                         <div className="select" style={{width: '100%'}}>
-                            <select style={{width: '100%'}} defaultValue={this.props.selected} >
+                            <select style={{width: '100%'}} 
+                                defaultValue={this.props.selected} 
+                                onChange={ this.handleOptionChange }
+                                name={this.props.name}
+                                >
                             {   
                                options.map((option) =>
                                 <option key={option.name} 
@@ -29,7 +34,7 @@ class OptionsFilter extends Component {
                             </select>
                         </div>
                         <div className="icon is-small is-left">
-                            <i className="fas">
+                            <i className={'fas '+ icon}>
                             </i>
                         </div>
                     </div>
