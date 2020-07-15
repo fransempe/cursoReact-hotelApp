@@ -11,7 +11,7 @@ class OptionsFilter extends Component {
     }
 
     render() {
-        const {options, icon} = this.props
+        const {options, icon, onChange, name} = this.props
         return (
             <div>
                 <div className="field">
@@ -20,13 +20,13 @@ class OptionsFilter extends Component {
                             <select style={{width: '100%'}} 
                                 defaultValue={this.props.selected} 
                                 onChange={ this.handleOptionChange }
-                                name={this.props.name}
+                                name={ name }
+                                onChange = { onChange }
                                 >
                             {   
                                options.map((option) =>
                                 <option key={option.name} 
-                                        value={option.value} 
-                                        onClick={this.execute}>
+                                        value={option.value}>
                                         {option.name}
                                 </option>
                                )

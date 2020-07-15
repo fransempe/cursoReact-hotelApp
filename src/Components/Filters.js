@@ -6,7 +6,6 @@ import OptionsFilter from './OptionsFilter'
 class Filters extends Component {
     constructor(props){
         super(props)
-        this.handleOptionChange = this.handleOptionChange.bind(this)
     }
 
     handleOptionChange(event) {
@@ -17,20 +16,23 @@ class Filters extends Component {
       
 
     render() {
-        const { filters, options } = this.props
+        const { filters, options, onChange } = this.props
         return (
                 <nav className="navbar is-info" style= {{justifyContent:'center'} }>
                     <div className="navbar-item">
                         <DateFilter
                             date={filters.dateFrom}
                             icon="fas fa-sign-in-alt"
-                            onDateChange= {this.handleOptionChange}
+                            onChange = { onChange }
+                            name = 'dateFrom'
                             />
                     </div>
                     <div className="navbar-item">
                         <DateFilter
                             date={filters.dateTo}
                             icon="fas fa-sign-out-alt"
+                            onChange = { onChange }
+                            name = 'dateTo'
                         />
                     </div>
                     <div className="navbar-item">
@@ -42,6 +44,8 @@ class Filters extends Component {
                                                 ]}
                                         selected={filters.country}
                                         icon="fa fa-globe"
+                                        onChange = { onChange }
+                                        name = 'country'
                         />
                     </div>
                     <div className="navbar-item">
@@ -53,12 +57,16 @@ class Filters extends Component {
                                                 ]}
                                         selected={filters.price}
                                         icon="fa-dollar-sign" 
+                                        onChange = {onChange}
+                                        name = 'price'
                         />
                     </div>
                     <div className="navbar-item">
                             <OptionsFilter options={ options }
                                             selected={ filters.rooms }
                                             icon="fa-bed" 
+                                            onChange = {onChange}
+                                            name = 'rooms'
                         />
                     </div>
 
