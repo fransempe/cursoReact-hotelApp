@@ -8,7 +8,7 @@ import Filters from './Components/Filters';
 
 import { today, hotelsData } from  './data';
 import Hotels from './Components/Hotels';
-
+import './config/momentConfig'
 
 function App() {
 
