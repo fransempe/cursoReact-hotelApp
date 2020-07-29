@@ -1,17 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Hotel from './Hotel'
 
-export default class Hotels extends Component {
-    render() {
-        return (
+export default function Hotels ({ hotels }) {   
+    return (
+
             <div>
                 <section className="section" style={ {marginTop: '3em'} }>
                     <div className="container">
                         <div className="columns is-multiline">
-                        ...
+                            {   
+                                hotels.map(hotel=>
+                                    <div key={hotel.slug} className="column is-one-third">
+                                        <Hotel hotel={hotel}/> 
+                                    </div>
+                            )}
                         </div>
                     </div>
                 </section>
             </div>
         )
-    }
 }

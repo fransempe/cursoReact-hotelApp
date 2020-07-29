@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { hotelsData } from '../data'
+
 
 export default class Hotel extends Component {
     constructor(props){
@@ -18,18 +18,25 @@ export default class Hotel extends Component {
                         <p className="title is-4"> { hotel.name } </p>
                         <p>{ hotel.description }</p>
                         <div className="field is-grouped is-grouped-multiline" style={{marginTop: '1em'}}>
+
                         <div className="control">
                             <div className="tags has-addons">
-                            <span className="tag is-medium is-info"><i className="fas fa-map-marker"></i></span>
+                                <span className="tag is-medium is-info">
+                                    <i className="fas fa-map-marker"></i>
+                                </span>
                                 <span className="tag is-medium">{ hotel.city } - {hotel.country}</span>
                             </div> 
                         </div>
+
                         <div className="control">
                             <div className="tags has-addons">
-                            <span className="tag is-medium is-info"><i className="fas fa-bed"></i></span>
+                                <span className="tag is-medium is-info">
+                                    <i className="fas fa-bed"></i>
+                                </span>
                             <span className="tag is-medium">{hotel.rooms}</span>
                             </div>
                         </div>
+
                         <div className="control">
                             <div className="tags">
                             <span className="tag is-medium is-info">

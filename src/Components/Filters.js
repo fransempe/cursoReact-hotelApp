@@ -1,22 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import DateFilter from './DateFilter'
 import OptionsFilter from './OptionsFilter'
 
-class Filters extends Component {
-    constructor(props){
-        super(props)
-    }
+export default function Filters ({ filters, options, onChange }) {
 
-    handleOptionChange(event) {
-         let payload = this.props.filters
-         payload[event.target.name] = event.target.value
-         this.props.onFilterChange(payload)
-      }
-      
-
-    render() {
-        const { filters, options, onChange } = this.props
         return (
                 <nav className="navbar is-info" style= {{justifyContent:'center'} }>
                     <div className="navbar-item">
@@ -73,6 +61,4 @@ class Filters extends Component {
                 </nav>
         )
     }
-}
 
-export default Filters

@@ -20,8 +20,6 @@ const optionDate = {
                                 desde el <strong>{ moment(filters.dateFrom).format('LL') } </strong> 
                                 hasta el <strong>{ moment(filters.dateTo).format('LL') } </strong>
                                 en <strong>{ filters.country } </strong>
-                                a $<strong>{ filters.price }.- </strong>
-                                con <strong>{ filters.rooms } habitaciones.</strong>
                             </h2>
                         </div>
                     </div>
